@@ -8,8 +8,8 @@ const Main = () => {
     return (
         <div>
              <Header />
-            <div className='main-body'>
-                <div className='bg-purple-300'>
+            <div className='main-body px-5'>
+                <div className='border-r-2'>
                     <SideBar />
                 </div>
                 <div>
