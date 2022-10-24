@@ -2,6 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Blogs from '../components/Blogs/Blogs';
 import Checkout from '../components/Checkout/Checkout';
+import CourseDetails from '../components/CourseDetails/CourseDetails';
 import Courses from '../components/Courses/Courses';
 import ErrorPage from '../components/ErrorPage/ErrorPage';
 import Home from '../components/Home/Home';
@@ -31,11 +32,16 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/courses/:id",
-                element: <Checkout />
+                loader: ({ params }) => fetch(`https://assignment-server-xi.vercel.app/courses/${params.id}`), 
+                element: <CourseDetails />
             },
             {
                 path: "/fqa",
                 element: <Questions />
+            },
+            {
+                path: "/checkout",
+                element: <Checkout />
             },
             {
                 path: "/blogs",
