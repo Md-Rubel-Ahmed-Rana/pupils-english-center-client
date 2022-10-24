@@ -5,7 +5,7 @@ import "./Header.css"
 
 const Header = () => {
     return (
-        <div className='flex justify-between items-center bg-gray-400 px-20 py-1'>
+        <div className='md:flex md:justify-between justify-center items-center bg-gray-400 md:px-20 px-5 py-1'>
             <div className='header flex items-center gap-3'>
                 <img src={Logo} alt="" />
                 <h4>Pupils English Center</h4>
