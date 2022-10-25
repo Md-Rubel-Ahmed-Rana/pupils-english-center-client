@@ -8,10 +8,10 @@ const Courses = () => {
     const courses = useFetch();
     return (
         <div className='px-5 row'>
-            <div className='col-3'>
+            <div className='col-lg-3'>
                 <SideBar />
             </div>
-            <div className='courses col-9 p-2  text-center'>
+            <div className='courses col-lg-9 p-2  text-center'>
                     {
                     courses.map((course) => <div className='course-card shadow-lg border p-2 rounded' key={course.id}>
                             <img className='img-fluid rounded' src={course.img} alt="" />
