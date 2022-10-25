@@ -5,18 +5,18 @@ import "./Header.css"
 
 const Header = () => {
     return (
-        <div className='md:flex md:justify-between justify-center items-center bg-gray-400 md:px-20 px-5 py-1'>
-            <div className='header flex items-center gap-3'>
+        <div className='d-md-flex justify-content-between md-justify-center align-items-center bg-info px-5 py-1'>
+            <div className='header d-flex align-items-center gap-3'>
                 <img src={Logo} alt="" />
-                <h4>Pupils English Center</h4>
+                <h5>Pupils English Center</h5>
             </div>
-            <div className='flex gap-2'>
-                <NavLink to="/home">Home</NavLink>
-                <NavLink to="/courses">Courses</NavLink>
-                <NavLink to="/fqa">FQA</NavLink>
-                <NavLink to="/blogs">Blogs</NavLink>
-                <NavLink to="/login">Login</NavLink>
-                <NavLink>Dark</NavLink>
+            <div className='d-flex gap-2'>
+                <NavLink to="/home" className="text-decoration-none text-dark">Home</NavLink>
+                <NavLink to="/courses" className="text-decoration-none text-dark">Courses</NavLink>
+                <NavLink to="/fqa" className="text-decoration-none text-dark">FQA</NavLink>
+                <NavLink to="/blogs" className="text-decoration-none text-dark">Blogs</NavLink>
+                <NavLink to="/login" className="text-decoration-none text-dark">Login</NavLink>
+                <NavLink className="text-decoration-none text-dark">Dark</NavLink>
             </div>
         </div>
     );

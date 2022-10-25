@@ -5,9 +5,11 @@ import useFetch from '../../hooks/useFetch';
 const SideBar = () => {
     const courseName = useFetch()
     return (
-        <div className='border-r-2'>
+        <div>
             {
-                courseName.map((course) => <Link to={`/courses/${course.id}`} className="block mt-3" key={course.id}>{course.name}</Link>)
+                courseName.map((course) => <div className='mt-2 bg-primary px-2 py-1 rounded fw-bold' key={course.id}>
+                    <Link to={`/courses/${course.id}`} className="block text-decoration-none text-dark">{course.name}</Link>
+                </div>)
             }
         </div>
     );

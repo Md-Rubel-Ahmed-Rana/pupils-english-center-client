@@ -7,16 +7,20 @@ import "./Courses.css"
 const Courses = () => {
     const courses = useFetch();
     return (
-        <div className='courses px-10'>
-            <SideBar />
-            <div className='grid grid-cols-3 p-2 gap-5 text-center'>
-                {
-                    courses.map((course) => <div className='course-card shadow-xl p-2' key={course.id}>
-                        <img src={course.img} alt="" />
-                        <h4 className='text-xl font-bold my-2'>{course.name}</h4>
-                        <Link to={`/courses/${course.id}`} className='bg-blue-900 py-1 px-2 text-white rounded'>Purchese now</Link>
-                    </div>)
-                }
+        <div className='px-5 row'>
+            <div className='col-3'>
+                <SideBar />
+            </div>
+            <div className='courses col-9 p-2  text-center'>
+                    {
+                    courses.map((course) => <div className='course-card shadow-lg border p-2 rounded' key={course.id}>
+                            <img className='img-fluid rounded' src={course.img} alt="" />
+                            <h4 className='text-xl font-bold my-2'>{course.name}</h4>
+                            <button className="btn btn-primary ">
+                            <Link to={`/courses/${course.id}`} className="text-light text-decoration-none">Details</Link>
+                            </button>
+                        </div>)
+                    }
             </div>
         </div>
     );
