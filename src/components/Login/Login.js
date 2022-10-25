@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/UserContext';
 import "./Login.css"
 
 const Login = () => {
+    const { handleSignInWithGoogle, setUser } = useContext(AuthContext);
+
+    const handleGoogle = () => {
+        handleSignInWithGoogle()
+        .then((result) => {
+            const user = result.user;
+            setUser(user);
+            console.log(user);
+        })
+        .catch((error) => console.log(error))
+    }
+
     return (
         <div className='form-container d-md-flex mx-auto gap-5 border mt-2 p-2'>
             <div>
@@ -30,7 +43,7 @@ const Login = () => {
             </div>
             <div className='mt-2 signin-buttons'>
                 <div className='mx-auto'>
-                    <Button variant="light d-block border">Signin with Google</Button>
+                    <Button onClick={handleGoogle} variant="light d-block border">Signin with Google</Button>
                 </div>
                 <div className='mx-auto'>
                     <Button variant="light d-block border">Signin with Github</Button>
