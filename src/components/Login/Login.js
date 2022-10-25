@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 import "./Login.css"
 
 const Login = () => {
@@ -18,25 +19,24 @@ const Login = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" />
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Accept our terms and conditions." />
-                    </Form.Group>
-                    <div className='text-center'>
-                        <Button variant="primary" type="submit">
+                    <div className='text-center '>
+                        <Button className='w-100' variant="primary" type="submit">
                             Login
                         </Button>
+
+                        <p>Don't have an account? <Link to="/register">Register</Link> </p>
                     </div>
                 </Form>
             </div>
             <div className='mt-2 signin-buttons'>
-                <div>
-                    <Button variant="primary d-block">Signin with Google</Button>
+                <div className='mx-auto'>
+                    <Button variant="light d-block border">Signin with Google</Button>
                 </div>
-                <div>
-                    <Button variant="primary d-block">Signin with Github</Button>
+                <div className='mx-auto'>
+                    <Button variant="light d-block border">Signin with Github</Button>
                 </div>
-               <div>
-                    <Button variant="primary d-block">Signin with Facebook</Button>
+                <div className='mx-auto'>
+                    <Button variant="light d-block border">Signin with Facebook</Button>
                </div>
             </div>
         </div>
