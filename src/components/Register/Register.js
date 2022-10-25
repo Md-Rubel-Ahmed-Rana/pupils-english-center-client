@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 
 const Register = () => {
-    const { handleSignInWithGoogle, setUser } = useContext(AuthContext)
+    const { handleSignInWithGoogle, setUser, signinWithGithub, signinWithFacebook, createUser } = useContext(AuthContext);
+
     const handleRegistration = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -14,9 +15,37 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const checkbox = form.checkbox.value;
-    }
+
+        createUser(email, password)
+        .then((result) => {
+            const user = result.user;
+            setUser(user)
+            console.log(user);
+        })
+        .catch((error) => console.log(error))
+    };
+
+
     const handleGoogle = () => {
         handleSignInWithGoogle()
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                console.log(user);
+            })
+            .catch((error) => console.log(error))
+    }
+    const handleGithub = () => {
+        signinWithGithub()
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                console.log(user);
+            })
+            .catch((error) => console.log(error))
+    }
+    const handleFacebook = () => {
+        signinWithFacebook()
             .then((result) => {
                 const user = result.user;
                 setUser(user);
@@ -62,10 +91,10 @@ const Register = () => {
                     <Button onClick={handleGoogle} variant="light d-block border">Signin with Google</Button>
                 </div>
                 <div className='mx-auto'>
-                    <Button variant="light d-block border">Signin with Github</Button>
+                    <Button onClick={handleGithub} variant="light d-block border">Signin with Github</Button>
                 </div>
                 <div className='mx-auto'>
-                    <Button variant="light d-block border">Signin with Facebook</Button>
+                    <Button onClick={handleFacebook} variant="light d-block border">Signin with Facebook</Button>
                 </div>
             </div>
         </div>
