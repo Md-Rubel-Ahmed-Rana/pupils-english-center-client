@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 import Logo from "../../images/pupils-logo.jpg";
 import "./Header.css"
 
 const Header = () => {
-    const {user} = useContext(AuthContext)
+    const {user} = useContext(AuthContext);
+    const [dark, setDark] = useState(false)
     return (
         <div className='d-md-flex justify-content-between md-justify-center align-items-center bg-info px-5 py-1'>
             <div className='header d-flex align-items-center gap-3'>
@@ -19,13 +20,12 @@ const Header = () => {
                 <NavLink to="/blogs" className="text-decoration-none text-dark">Blogs</NavLink>
 
                 {
-                    user?.uid ? <div>
-                        <img src={user?.displayName} alt="" />
-                    </div>
+                    user?.uid ?
+                        <img style={{height: "35px", borderRadius: "50%"}} src={user?.photoURL} alt="" />
                     : <NavLink to="/login" className="text-decoration-none text-dark">Login</NavLink>
                 }
 
-                <NavLink className="text-decoration-none text-dark">Dark</NavLink>
+                <button onClick={() => setDark(!dark)} className="btn btn-dark py-0">{dark ? "Dark" : "Light" }</button>
             </div>
         </div>
     );

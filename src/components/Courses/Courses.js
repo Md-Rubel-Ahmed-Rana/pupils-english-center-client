@@ -16,7 +16,7 @@ const Courses = () => {
                     courses.map((course) => <div className='course-card shadow-lg border p-2 rounded' key={course.id}>
                             <img className='img-fluid rounded' src={course.img} alt="" />
                             <h4 className='text-xl font-bold my-2'>{course.name}</h4>
-                            <button className="btn btn-primary ">
+                            <button className="btn btn-primary w-100">
                             <Link to={`/courses/${course.id}`} className="text-light text-decoration-none">Details</Link>
                             </button>
                         </div>)

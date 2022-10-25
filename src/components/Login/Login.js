@@ -6,10 +6,28 @@ import { AuthContext } from '../../contexts/UserContext';
 import "./Login.css"
 
 const Login = () => {
-    const { handleSignInWithGoogle, setUser } = useContext(AuthContext);
+    const { handleSignInWithGoogle, setUser, signinWithGithub, signinWithFacebook } = useContext(AuthContext);
 
     const handleGoogle = () => {
         handleSignInWithGoogle()
+        .then((result) => {
+            const user = result.user;
+            setUser(user);
+            console.log(user);
+        })
+        .catch((error) => console.log(error))
+    }
+    const handleGithub = () => {
+        signinWithGithub()
+        .then((result) => {
+            const user = result.user;
+            setUser(user);
+            console.log(user);
+        })
+        .catch((error) => console.log(error))
+    }
+    const handleFacebook = () => {
+        signinWithFacebook()
         .then((result) => {
             const user = result.user;
             setUser(user);
@@ -46,10 +64,10 @@ const Login = () => {
                     <Button onClick={handleGoogle} variant="light d-block border">Signin with Google</Button>
                 </div>
                 <div className='mx-auto'>
-                    <Button variant="light d-block border">Signin with Github</Button>
+                    <Button onClick={handleGithub} variant="light d-block border">Signin with Github</Button>
                 </div>
                 <div className='mx-auto'>
-                    <Button variant="light d-block border">Signin with Facebook</Button>
+                    <Button onClick={handleFacebook} variant="light d-block border">Signin with Facebook</Button>
                </div>
             </div>
         </div>
