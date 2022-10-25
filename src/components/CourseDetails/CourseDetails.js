@@ -7,14 +7,12 @@ const CourseDetails = () => {
     return (
         <div className='details-container border mt-2 px-2 mx-auto rounded pb-3'>
             <div className='p-2'>
-                <div className='d-lg-flex justify-content-around'>
-                    <div>
-                        <img className='img-fluid rounded' src={course.img} alt="" />
-                    </div>
-                    <div className='text-center'>
-                        <h4 className='font-bold'>{course.name}</h4>
-                        <button className='bg-gray-400 rounded py-1 px-5 font-bold text-center mt-5'>Download</button>
-                    </div>
+                <div className='d-flex justify-content-between align-items-center'>
+                    <h5 className='font-bold'>Welcome to our <small className='text-decoration-underline text-primary'>{course.name}</small> course.</h5>
+                    <p className='border bg-primary py-1 px-2 rounded text-white'>Download</p>
+                </div>
+                <div className='header-img'>
+                    <img className='w-100 rounded' src={course.img} alt="" />
                 </div>
                 <p className='px-3 my-1'>{course.description} <Link to="/courses">Go Back</Link></p>
                 <div className='text-center mt-2'>
