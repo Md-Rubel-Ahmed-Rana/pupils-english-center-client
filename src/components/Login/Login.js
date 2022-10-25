@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 import "./Login.css"
 
 const Login = () => {
+    const navigate = useNavigate()
     const { handleSignInWithGoogle, setUser, signinWithGithub, signinWithFacebook, loginWithEmailAndPassword } = useContext(AuthContext);
 
     const handleLogin = (event) => {
@@ -17,7 +18,8 @@ const Login = () => {
         loginWithEmailAndPassword(email, password)
             .then((res) => {
                 const user = res.user;
-                setUser(user)
+                setUser(user);
+                navigate("/checkout")
             })
             .catch((error) => console.log(error))
     };

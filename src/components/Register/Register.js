@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 
 const Register = () => {
+    const navigate = useNavigate();
+    const [accept, setAccept] = useState(false)
     const { handleSignInWithGoogle, setUser, signinWithGithub, signinWithFacebook, createUser, updateUserProfile } = useContext(AuthContext);
 
     const handleRegistration = (event) => {
@@ -18,7 +20,8 @@ const Register = () => {
 
         createUser(email, password)
         .then(() => {
-            handleUpdateProfile(fullName, photoURL)
+            handleUpdateProfile(fullName, photoURL);
+            navigate("/login")
         })
         .catch((error) => console.log(error))
     };
@@ -84,10 +87,10 @@ const Register = () => {
                         <Form.Control type="password" name="password" placeholder="Password" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="checkbox">
-                        <Form.Check type="checkbox" name="checkbox" label="Accept our terms and conditions." />
+                        <Form.Check onClick={() => setAccept(!accept)} type="checkbox" name="checkbox" label="Accept our terms and conditions." />
                     </Form.Group>
                     <div className='text-center'>
-                        <Button variant="primary" type="submit">
+                        <Button variant="primary" disabled={!accept ? true : false } type="submit">
                             Register
                         </Button>
                         <p>Already have an account? <Link to="/login">Login</Link> </p>
