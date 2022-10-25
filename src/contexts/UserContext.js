@@ -26,6 +26,10 @@ const UserContext = ({children}) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
+    const loginWithEmailAndPassword = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password)
+    }
+
     const authInfo = { 
         user,
         createUser,
@@ -33,6 +37,7 @@ const UserContext = ({children}) => {
         handleSignInWithGoogle, 
         signinWithGithub,
         signinWithFacebook,
+        loginWithEmailAndPassword
     }
 
     return (

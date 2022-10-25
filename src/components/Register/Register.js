@@ -17,11 +17,7 @@ const Register = () => {
         const checkbox = form.checkbox.value;
 
         createUser(email, password)
-        .then((result) => {
-            const user = result.user;
-            setUser(user)
-            console.log(user);
-        })
+        .then(() => {})
         .catch((error) => console.log(error))
     };
 

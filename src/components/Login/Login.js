@@ -6,7 +6,21 @@ import { AuthContext } from '../../contexts/UserContext';
 import "./Login.css"
 
 const Login = () => {
-    const { handleSignInWithGoogle, setUser, signinWithGithub, signinWithFacebook } = useContext(AuthContext);
+    const { handleSignInWithGoogle, setUser, signinWithGithub, signinWithFacebook, loginWithEmailAndPassword } = useContext(AuthContext);
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        loginWithEmailAndPassword(email, password)
+            .then((res) => {
+                const user = res.user;
+                setUser(user)
+            })
+            .catch((error) => console.log(error))
+    };
 
     const handleGoogle = () => {
         handleSignInWithGoogle()
@@ -39,16 +53,16 @@ const Login = () => {
     return (
         <div className='form-container d-md-flex mx-auto gap-5 border mt-2 p-2'>
             <div>
-                <Form className='bg-light p-2'>
+                <Form onSubmit={handleLogin} className='bg-light p-2'>
                     <h3 className='text-center'>Login Please</h3>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control type="email" name="email" placeholder="Enter email" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control type="password" name="password" placeholder="Password" />
                     </Form.Group>
                     <div className='text-center '>
                         <Button className='w-100' variant="primary" type="submit">
