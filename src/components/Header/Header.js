@@ -6,14 +6,16 @@ import "./Header.css"
 
 const Header = () => {
     const { user, userLogOut } = useContext(AuthContext);
-    const [dark, setDark] = useState(false)
+    const [show, setShow] = useState(false);
+    const [dark, setDark] = useState(false);
+
     return (
         <div className='d-md-flex justify-content-between md-justify-center align-items-center bg-info px-5 py-1'>
             <div className='header d-flex align-items-center gap-3'>
                 <img src={Logo} alt="" />
                 <h5>Pupils English Center</h5>
             </div>
-            <div className='d-flex gap-2'>
+            <div className='d-flex gap-2 position-relative'>
                 <NavLink to="/home" className="text-decoration-none text-dark">Home</NavLink>
                 <NavLink to="/courses" className="text-decoration-none text-dark">Courses</NavLink>
                 <NavLink to="/fqa" className="text-decoration-none text-dark">FQA</NavLink>
@@ -23,13 +25,15 @@ const Header = () => {
                     user?.uid ?
                         <>
                             
-                            <img title="Md Rubel Ahmed Rana" style={{ height: "35px", borderRadius: "50%", width: "35px" }} src={user?.photoURL} alt="" />
+                            <img onMouseOver={() => setShow(!show)} onMouseLeave={() => setShow(!show)} title="Md Rubel Ahmed Rana" style={{ height: "35px", borderRadius: "50%", width: "35px" }} src={user?.photoURL} alt="" />
                             <button onClick={userLogOut} className='btn btn-danger border py-0'>LogOut</button>
                         </>
                     : <NavLink to="/login" className="text-decoration-none text-dark">Login</NavLink>
                 }
 
                 <button onClick={() => setDark(!dark)} className="btn btn-dark py-0">{dark ? "Dark" : "Light" }</button>
+
+                <p className={`position-absolute top-100 bg-success text-white rounded py-1 px-2 start-50 ${show ? "d-block" : "d-none"}`}>{user?.displayName}</p>
             </div>
         </div>
     );
