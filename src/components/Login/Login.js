@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 import "./Login.css"
 
 const Login = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const { handleSignInWithGoogle, setUser, signinWithGithub, signinWithFacebook, loginWithEmailAndPassword } = useContext(AuthContext);
+
+    const location = useLocation();
+    const from = location.state?.from?.pathname;
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -19,7 +22,7 @@ const Login = () => {
             .then((res) => {
                 const user = res.user;
                 setUser(user);
-                navigate("/checkout")
+                navigate(from, {replace: true})
             })
             .catch((error) => console.log(error))
     };
@@ -29,7 +32,7 @@ const Login = () => {
         .then((result) => {
             const user = result.user;
             setUser(user);
-            console.log(user);
+            navigate(from, { replace: true })
         })
         .catch((error) => console.log(error))
     }
@@ -38,7 +41,7 @@ const Login = () => {
         .then((result) => {
             const user = result.user;
             setUser(user);
-            console.log(user);
+            navigate(from, { replace: true })
         })
         .catch((error) => console.log(error))
     }
@@ -47,7 +50,7 @@ const Login = () => {
         .then((result) => {
             const user = result.user;
             setUser(user);
-            console.log(user);
+            navigate(from, { replace: true })
         })
         .catch((error) => console.log(error))
     }

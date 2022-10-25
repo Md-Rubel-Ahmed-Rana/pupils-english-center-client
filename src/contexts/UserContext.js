@@ -6,7 +6,7 @@ export const AuthContext = createContext();
 const auth = getAuth(app)
 
 const UserContext = ({children}) => {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState({});
     const [loading, isLoading] = useState(true)
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -49,8 +49,10 @@ const UserContext = ({children}) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser === null || currentUser.emailVerified) {
+                setUser(currentUser);
+            }
             isLoading(false)
-            setUser(currentUser)
         })
 
         return () => {
