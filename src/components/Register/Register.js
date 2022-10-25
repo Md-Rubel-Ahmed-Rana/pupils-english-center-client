@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 
 const Register = () => {
-    const { handleSignInWithGoogle, setUser, signinWithGithub, signinWithFacebook, createUser } = useContext(AuthContext);
+    const { handleSignInWithGoogle, setUser, signinWithGithub, signinWithFacebook, createUser, updateUserProfile } = useContext(AuthContext);
 
     const handleRegistration = (event) => {
         event.preventDefault();
@@ -17,10 +17,22 @@ const Register = () => {
         const checkbox = form.checkbox.value;
 
         createUser(email, password)
-        .then(() => {})
+        .then(() => {
+            handleUpdateProfile(fullName, photoURL)
+        })
         .catch((error) => console.log(error))
     };
 
+
+    const handleUpdateProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+        .then(() => alert("Profile update"))
+        .catch((error) => console.log(error))
+    }
 
     const handleGoogle = () => {
         handleSignInWithGoogle()

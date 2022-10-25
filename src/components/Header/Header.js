@@ -21,7 +21,7 @@ const Header = () => {
 
                 {
                     user?.uid ?
-                        <img style={{height: "35px", borderRadius: "50%"}} src={user?.photoURL} alt="" />
+                        <img style={{height: "35px", borderRadius: "50%", width: "35px"}} src={user?.photoURL} alt="" />
                     : <NavLink to="/login" className="text-decoration-none text-dark">Login</NavLink>
                 }
 
