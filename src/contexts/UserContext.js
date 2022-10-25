@@ -6,41 +6,50 @@ export const AuthContext = createContext();
 const auth = getAuth(app)
 
 const UserContext = ({children}) => {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
+    const [loading, isLoading] = useState(true)
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
     
     const handleSignInWithGoogle = () => {
+        isLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
     
     const signinWithGithub = () => {
+        isLoading(true)
         return signInWithPopup(auth, githubProvider)
     }
     const signinWithFacebook = () => {
+        isLoading(true)
         return signInWithPopup(auth, facebookProvider)
     }
 
     const createUser = (email, password) => {
+        isLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const loginWithEmailAndPassword = (email, password) => {
+        isLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const updateUserProfile = (profile) => {
+        isLoading(true)
         return updateProfile(auth.currentUser, profile)
     }
 
 
     const userLogOut = () => {
+        isLoading(true)
         return signOut(auth)
     }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            isLoading(false)
             setUser(currentUser)
         })
 
@@ -54,6 +63,7 @@ const UserContext = ({children}) => {
         user,
         createUser,
         setUser,
+        loading,
         handleSignInWithGoogle, 
         signinWithGithub,
         signinWithFacebook,

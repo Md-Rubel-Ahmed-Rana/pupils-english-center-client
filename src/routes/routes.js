@@ -10,6 +10,7 @@ import Login from '../components/Login/Login';
 import Questions from '../components/Questions/Questions';
 import Register from '../components/Register/Register';
 import Main from '../Layout/Main';
+import PrivateRoute from './PrivateRoute';
 
 
 const routes = createBrowserRouter([
@@ -41,7 +42,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/checkout",
-                element: <Checkout />
+                element: <PrivateRoute> <Checkout /> </PrivateRoute>
             },
             {
                 path: "/blogs",
