@@ -5,7 +5,7 @@ import Logo from "../../images/pupils-logo.jpg";
 import "./Header.css"
 
 const Header = () => {
-    const {user} = useContext(AuthContext);
+    const { user, userLogOut } = useContext(AuthContext);
     const [dark, setDark] = useState(false)
     return (
         <div className='d-md-flex justify-content-between md-justify-center align-items-center bg-info px-5 py-1'>
@@ -21,7 +21,11 @@ const Header = () => {
 
                 {
                     user?.uid ?
-                        <img style={{height: "35px", borderRadius: "50%", width: "35px"}} src={user?.photoURL} alt="" />
+                        <>
+                            
+                            <img title="Md Rubel Ahmed Rana" style={{ height: "35px", borderRadius: "50%", width: "35px" }} src={user?.photoURL} alt="" />
+                            <button onClick={userLogOut} className='btn btn-danger border py-0'>LogOut</button>
+                        </>
                     : <NavLink to="/login" className="text-decoration-none text-dark">Login</NavLink>
                 }
 
