@@ -8,11 +8,12 @@ import "./Courses.css"
 
 const Courses = () => {
     const courses = useFetch();
-    const {loading} = useContext(AuthContext)
+    const {loading} = useContext(AuthContext);
+    
     return (
         <div className='px-5 row'>
             { 
-                loading ? <div className='text-center'>
+                loading || courses.length === 0 ? <div className='text-center'>
                     <h1>Data Loading</h1>
                     <Vortex
                         visible={true}

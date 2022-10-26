@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth"
+import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth"
 import app from '../firebase/firebase.config';
 import swal from 'sweetalert';
 
@@ -50,6 +50,9 @@ const UserContext = ({children}) => {
         return signOut(auth)
     }
 
+
+    
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -61,6 +64,10 @@ const UserContext = ({children}) => {
         }
 
     }, [])
+
+    const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email)
+    }
 
     const authInfo = { 
         user,
@@ -74,7 +81,8 @@ const UserContext = ({children}) => {
         updateUserProfile,
         userLogOut,
         setCurrentCourseInfo,
-        currentCourseInfo
+        currentCourseInfo,
+        resetPassword
     }
 
     return (

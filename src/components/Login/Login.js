@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -7,8 +7,15 @@ import "./Login.css";
 import swal from 'sweetalert';
 
 const Login = () => {
+    const [email, setEmail] = useState("")
     const navigate = useNavigate();
-    const { handleSignInWithGoogle, setUser, signinWithGithub, signinWithFacebook, loginWithEmailAndPassword } = useContext(AuthContext);
+    const { handleSignInWithGoogle, 
+            setUser, 
+            signinWithGithub, 
+            signinWithFacebook, 
+            loginWithEmailAndPassword,
+            resetPassword
+        } = useContext(AuthContext);
 
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
@@ -65,6 +72,20 @@ const Login = () => {
             .catch((error) => swal(`${error}`, "", "error"))
     }
 
+    const getUserEmail = (event) => {
+        const email = event.target.value;
+        setEmail(email);
+    }
+    const handleResetPassword = () => {
+        if (!email) {
+            alert("Please enter your email.");
+            return;
+        }
+        resetPassword(email)
+            .then(() => swal("Don't worry", "We sent an reset-email to your email. Please check your inbox or spam box"))
+            .then((error) => swal(`${error.message}`))
+    }
+
     return (
         <div className='form-container d-md-flex mx-auto gap-5 border mt-2 p-2'>
             <div>
@@ -72,19 +93,21 @@ const Login = () => {
                     <h3 className='text-center'>Login Please</h3>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" name="email" placeholder="Enter email" required/>
+                        <Form.Control onChange={getUserEmail} type="email" name="email" placeholder="Enter email" required/>
                     </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                
+                    <Form.Group className="mb-1" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name="password" placeholder="Password" required />
                     </Form.Group>
+                    <Link onClick={handleResetPassword} className='text-decoration-none'>Forget Password?</Link>
+
                     <div className='text-center '>
-                        <Button className='w-100' variant="primary" type="submit">
+                        <Button className='w-100 mt-2' variant="primary" type="submit">
                             Login
                         </Button>
 
-                        <p>Don't have an account? <Link to="/register">Register</Link> </p>
+                        <p className='mt-2'>Don't have an account? <Link to="/register">Register</Link> </p>
                     </div>
                 </Form>
             </div>
