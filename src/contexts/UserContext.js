@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth"
 import app from '../firebase/firebase.config';
+import swal from 'sweetalert';
 
 export const AuthContext = createContext();
 const auth = getAuth(app)
@@ -45,6 +46,7 @@ const UserContext = ({children}) => {
 
     const userLogOut = () => {
         isLoading(true)
+        swal("User logged out","", "warning")
         return signOut(auth)
     }
 

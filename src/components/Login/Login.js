@@ -3,14 +3,15 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
-import "./Login.css"
+import "./Login.css";
+import swal from 'sweetalert';
 
 const Login = () => {
     const navigate = useNavigate();
     const { handleSignInWithGoogle, setUser, signinWithGithub, signinWithFacebook, loginWithEmailAndPassword } = useContext(AuthContext);
 
     const location = useLocation();
-    const from = location.state?.from?.pathname;
+    const from = location.state?.from?.pathname || "/";
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -22,9 +23,16 @@ const Login = () => {
             .then((res) => {
                 const user = res.user;
                 setUser(user);
-                navigate(from, { replace: true })
+                swal("Wow!", "Congratulations!", "success")
+                if(from){
+                    navigate(from, { replace: true })
+                }else{
+                    navigate("/")
+                }
             })
-            .catch((error) => console.log(error))
+            .catch((error) => {
+                swal(`${error}`, "", "error")
+            })
     };
 
     const handleGoogle = () => {
@@ -35,7 +43,7 @@ const Login = () => {
             navigate(from, { replace: true })
 
         })
-        .catch((error) => console.log(error))
+            .catch((error) => swal(`${error}`, "", "error"))
     }
     const handleGithub = () => {
         signinWithGithub()
@@ -44,7 +52,7 @@ const Login = () => {
             setUser(user);
             navigate(from, { replace: true })
         })
-        .catch((error) => console.log(error))
+            .catch((error) => swal(`${error}`, "", "error"))
     }
     const handleFacebook = () => {
         signinWithFacebook()
@@ -54,7 +62,7 @@ const Login = () => {
             navigate(from, { replace: true })
 
         })
-        .catch((error) => console.log(error))
+            .catch((error) => swal(`${error}`, "", "error"))
     }
 
     return (

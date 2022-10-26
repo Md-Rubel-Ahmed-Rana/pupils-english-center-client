@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
+import swal from 'sweetalert';
+
 
 const Register = () => {
     const navigate = useNavigate();
@@ -21,8 +23,9 @@ const Register = () => {
         .then(() => {
             handleUpdateProfile(fullName, photoURL);
             navigate("/login")
+            swal("Good Job", "User created successfully and Profile Updated", "success")
         })
-        .catch((error) => console.log(error))
+        .catch((error) => swal(`${error}`, "", "error"))
     };
 
 
@@ -32,8 +35,8 @@ const Register = () => {
             photoURL: photoURL
         }
         updateUserProfile(profile)
-        .then(() => alert("Profile update"))
-        .catch((error) => console.log(error))
+        .then(() => {})
+        .catch((error) => swal(`${error}`, "", "error"))
     }
 
     const handleGoogle = () => {
@@ -41,27 +44,24 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
-                console.log(user);
             })
-            .catch((error) => console.log(error))
+            .catch((error) => swal(`${error}`, "", "error"))
     }
     const handleGithub = () => {
         signinWithGithub()
             .then((result) => {
                 const user = result.user;
                 setUser(user);
-                console.log(user);
             })
-            .catch((error) => console.log(error))
+            .catch((error) => swal(`${error}`, "", "error"))
     }
     const handleFacebook = () => {
         signinWithFacebook()
             .then((result) => {
                 const user = result.user;
                 setUser(user);
-                console.log(user);
             })
-            .catch((error) => console.log(error))
+            .catch((error) => swal(`${error}`, "", "error"))
     }
     return (
         <div className='form-container d-md-flex mx-auto gap-5 border mt-2 p-2'>
