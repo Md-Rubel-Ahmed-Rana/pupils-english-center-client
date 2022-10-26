@@ -16,7 +16,6 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        const checkbox = form.checkbox.value;
 
         createUser(email, password)
         .then(() => {

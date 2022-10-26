@@ -22,7 +22,7 @@ const Login = () => {
             .then((res) => {
                 const user = res.user;
                 setUser(user);
-                navigate(from, {replace: true})
+                navigate(from, { replace: true })
             })
             .catch((error) => console.log(error))
     };
@@ -33,6 +33,7 @@ const Login = () => {
             const user = result.user;
             setUser(user);
             navigate(from, { replace: true })
+
         })
         .catch((error) => console.log(error))
     }
@@ -50,8 +51,8 @@ const Login = () => {
         .then((result) => {
             const user = result.user;
             setUser(user);
-            navigate("/checkout")
             navigate(from, { replace: true })
+
         })
         .catch((error) => console.log(error))
     }

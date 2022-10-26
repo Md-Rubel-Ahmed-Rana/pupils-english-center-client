@@ -35,7 +35,7 @@ const Header = () => {
 
                 <button onClick={() => setDark(!dark)} className="btn btn-dark py-0">{dark ? "Dark" : "Light" }</button>
 
-                <p className={`position-absolute top-100 bg-success text-white rounded py-1 px-2 start-50 ${show ? "d-block" : "d-none"}`}>{user?.displayName}</p>
+                <p className={`position-absolute top-100 bg-success text-white rounded py-1 px-2 start-50 m-0 ${show ? "d-block" : "d-none"}`}>{user?.displayName}</p>
             </div>
         </div>
     );
