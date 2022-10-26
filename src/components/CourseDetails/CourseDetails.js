@@ -5,7 +5,8 @@ import ReactToPdf from "react-to-pdf"
 const ref = React.createRef();
 
 const CourseDetails = () => {
-    const course = useLoaderData().details[0]
+    const course = useLoaderData().details[0];
+    console.log(course);
     return (
         <div ref={ref} className='details-container border mt-2 px-2 mx-auto rounded pb-3'>
             <div className='p-2'>

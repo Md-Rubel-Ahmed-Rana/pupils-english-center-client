@@ -13,7 +13,10 @@ const Courses = () => {
             </div>
             <div className='courses col-lg-9 p-2  text-center'>
                     {
-                    courses.map((course) => <div className='course-card shadow-lg border p-2 rounded' key={course.id}>
+                    courses.map((course) => <div 
+                    className='course-card shadow-lg border p-2 rounded' 
+                    key={course.id}
+                    >
                             <img className='img-fluid rounded' src={course.img} alt="" />
                             <h4 className='text-xl font-bold my-2'>{course.name}</h4>
                             
