@@ -71,20 +71,20 @@ const Register = () => {
                     <h3 className='text-center'>Register here</h3>
                     <Form.Group className="mb-3" controlId="fullname">
                         <Form.Label>Full Name</Form.Label>
-                        <Form.Control type="text" name="fullname" placeholder="Full Name" />
+                        <Form.Control type="text" name="fullname" placeholder="Full Name" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Photo URL</Form.Label>
-                        <Form.Control type="text" name="photoURL" placeholder="PhotoURL" />
+                        <Form.Control type="text" name="photoURL" placeholder="PhotoURL" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="email">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" name="email" placeholder="Enter email" />
+                        <Form.Control type="email" name="email" placeholder="Enter email" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="password">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name="password" placeholder="Password" />
+                        <Form.Control type="password" name="password" placeholder="Password" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="checkbox">
                         <Form.Check onClick={() => setAccept(!accept)} type="checkbox" name="checkbox" label="Accept our terms and conditions." />

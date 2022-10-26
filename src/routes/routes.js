@@ -33,7 +33,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/courses/:id",
-                loader: ({ params }) => fetch(`https://assignment-server-xi.vercel.app/courses/${params.id}`), 
+                loader: ({ params }) => fetch(`https://assignment-server-xi.vercel.app/courses/${params.id}`),
                 element: <CourseDetails />
             },
             {

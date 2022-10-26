@@ -27,7 +27,7 @@ const Header = () => {
                     user?.uid ?
                         <>
                             
-                            <img onMouseOver={() => setShow(!show)} onMouseLeave={() => setShow(!show)} title="Md Rubel Ahmed Rana" style={{ height: "35px", borderRadius: "50%", width: "35px" }} src={user?.photoURL} alt="" />
+                            <img onMouseOver={() => setShow(!show)} title="Md Rubel Ahmed Rana" style={{ height: "35px", borderRadius: "50%", width: "35px" }} src={user?.photoURL} alt="" />
                             <button onClick={userLogOut} className='btn btn-danger border py-0'>LogOut</button>
                         </>
                     : <NavLink to="/login" className="text-decoration-none text-dark">Login</NavLink>

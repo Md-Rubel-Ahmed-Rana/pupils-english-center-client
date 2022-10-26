@@ -1,0 +1,9 @@
+.checkout{
+    width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .checkout {
+            width: 100%;
+    }
+}

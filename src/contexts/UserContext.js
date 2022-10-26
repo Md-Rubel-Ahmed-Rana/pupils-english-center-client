@@ -7,6 +7,7 @@ const auth = getAuth(app)
 
 const UserContext = ({children}) => {
     const [user, setUser] = useState({});
+    const [currentCourseInfo, setCurrentCourseInfo] = useState({})
     const [loading, isLoading] = useState(true)
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -69,7 +70,9 @@ const UserContext = ({children}) => {
         signinWithFacebook,
         loginWithEmailAndPassword,
         updateUserProfile,
-        userLogOut
+        userLogOut,
+        setCurrentCourseInfo,
+        currentCourseInfo
     }
 
     return (

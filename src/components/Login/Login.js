@@ -50,6 +50,7 @@ const Login = () => {
         .then((result) => {
             const user = result.user;
             setUser(user);
+            navigate("/checkout")
             navigate(from, { replace: true })
         })
         .catch((error) => console.log(error))
@@ -62,12 +63,12 @@ const Login = () => {
                     <h3 className='text-center'>Login Please</h3>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" name="email" placeholder="Enter email" />
+                        <Form.Control type="email" name="email" placeholder="Enter email" required/>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name="password" placeholder="Password" />
+                        <Form.Control type="password" name="password" placeholder="Password" required />
                     </Form.Group>
                     <div className='text-center '>
                         <Button className='w-100' variant="primary" type="submit">
