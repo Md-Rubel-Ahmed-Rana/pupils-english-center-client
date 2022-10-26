@@ -16,10 +16,12 @@ const Header = () => {
                 <h5>Pupils English Center</h5>
             </div>
             <div className='d-flex gap-2 position-relative'>
-                <NavLink to="/home" className="text-decoration-none text-dark">Home</NavLink>
-                <NavLink to="/courses" className="text-decoration-none text-dark">Courses</NavLink>
-                <NavLink to="/fqa" className="text-decoration-none text-dark">FQA</NavLink>
-                <NavLink to="/blogs" className="text-decoration-none text-dark">Blogs</NavLink>
+                <NavLink  to="/home" className={({ isActive }) => { return isActive ? "active text-danger" : "text-decoration-none text-dark" }}>Home</NavLink>
+                <NavLink to="/courses" className={({ isActive }) => { return isActive ? "active text-danger" : "text-decoration-none text-dark" }}>Courses</NavLink>
+                <NavLink
+                to="/fqa" className={({ isActive }) => {return isActive ? "active text-danger" :  "text-decoration-none text-dark"}}
+                >FQA</NavLink>
+                <NavLink to="/blogs" className={({ isActive }) => { return isActive ? "active text-danger" : "text-decoration-none text-dark" }}>Blogs</NavLink>
 
                 {
                     user?.uid ?
