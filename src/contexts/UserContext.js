@@ -9,7 +9,7 @@ const auth = getAuth(app)
 const UserContext = ({children}) => {
     const [user, setUser] = useState(null);
     const [currentCourseInfo, setCurrentCourseInfo] = useState({})
-    const [loading, isLoading] = useState(true)
+    const [loading, isLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
@@ -45,12 +45,15 @@ const UserContext = ({children}) => {
 
 
     const userLogOut = () => {
+        window.location.assign("/")
         isLoading(true)
-        swal("User logged out","", "warning")
+        swal("User logged out","", "warning");
         return signOut(auth)
     }
 
-
+    const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email)
+    }
     
 
     useEffect(() => {
@@ -65,9 +68,7 @@ const UserContext = ({children}) => {
 
     }, [])
 
-    const resetPassword = (email) => {
-        return sendPasswordResetEmail(auth, email)
-    }
+    
 
     const authInfo = { 
         user,

@@ -24,7 +24,7 @@ const CourseDetails = () => {
                     <p>
                         <ReactToPdf targetRef={ref} filename="course-invoice.pdf">
                             {({ toPdf }) => (
-                                <button className='border bg-primary py-1 px-2 rounded text-white' onClick={toPdf}>Download</button>
+                                <button className='border bg-primary py-1 px-2 rounded text-white' onClick={toPdf}>Download PDF</button>
                             )}
                         </ReactToPdf>
                     </p>

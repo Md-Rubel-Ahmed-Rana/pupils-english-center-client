@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 import Logo from "../../images/pupils-logo.jpg";
 import "./Header.css"
@@ -26,8 +26,9 @@ const Header = () => {
                 {
                     user?.uid ?
                         <>
-                            
-                            <img onMouseOver={() => setShow(!show)} title="Md Rubel Ahmed Rana" style={{ height: "35px", borderRadius: "50%", width: "35px" }} src={user?.photoURL} alt="" />
+                            <Link to="profile">
+                                <img onMouseOver={() => setShow(!show)} title="Md Rubel Ahmed Rana" style={{ height: "35px", borderRadius: "50%", width: "35px" }} src={user?.photoURL} alt="" />
+                            </Link>
                             <button onClick={userLogOut} className='btn btn-danger border py-0'>LogOut</button>
                         </>
                     : <NavLink to="/login" className="text-decoration-none text-dark">Login</NavLink>
