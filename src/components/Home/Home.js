@@ -13,7 +13,7 @@ import Computer from "../../images/basic-computer.png"
 const Home = () => {
     return (
         <div>
-            <AwesomeSlider className='carousel'>
+            <AwesomeSlider className='carousel mb-5'>
                 <div className='carousel-card'>
                     <img className='img-fluid' src={Banner} alt="" />
                 </div>
