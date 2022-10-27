@@ -21,7 +21,7 @@ const Checkout = () => {
                 <p>Email: {user?.email ? user?.email : "Restcricted"}</p>
             </div>
                 <p>
-                    <ReactToPdf targetRef={ref} filename="course-invoice.pdf">
+                    <ReactToPdf targetRef={ref} filename="course-invoice.pdf" x={40} y={50} scale={0.8}>
                         {({ toPdf }) => (
                             <button className='border bg-primary py-1 px-2 rounded text-white' onClick={toPdf}>Download Invoice</button>
                         )}
