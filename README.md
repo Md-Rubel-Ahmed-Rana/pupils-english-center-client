@@ -35,3 +35,5 @@
 2. React-to-Pdf
 3. Firebase to authenticate
 4. Sweetalert
+5. React-Awesome-Slider
+6. React-icons (FontAwesome)
