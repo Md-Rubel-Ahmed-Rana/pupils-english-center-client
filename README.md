@@ -8,6 +8,7 @@
 ### Application Features
 
 + We provide world class service.
++ User information is most secured with firebase authentication.
 + This is an english environment.
 + Within 3 months you will be able talk around the world.
 + After completing IELTS we provide an international certificate.
@@ -18,12 +19,19 @@
 
 
 ### Technologies used in this project
-
 1. HTML
 1. CSS
 1. Bottstrap
 1. React-Bootstrap
 1. JavaScript
 1. Reactjs
+1. React-Router-Dom
 1. Nodejs
 1. Expressjs
+
+
+### Packages used in this project
+1. React-Loader-Spinner
+2. React-to-Pdf
+3. Firebase to authenticate
+4. Sweetalert
