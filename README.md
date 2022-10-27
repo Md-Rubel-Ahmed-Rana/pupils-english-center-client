@@ -15,3 +15,15 @@
 + After completing Basic Computer Course you will be able to apply for job in Computer Operator position.
 + In Graphics Design course we will make help you to get orders from online market place.
 + You will be strong on English Grammar after  completing Grammar & Writing Course.
+
+
+### Technologies used in this project
+
+1. HTML
+1. CSS
+1. Bottstrap
+1. React-Bootstrap
+1. JavaScript
+1. Reactjs
+1. Nodejs
+1. Expressjs
