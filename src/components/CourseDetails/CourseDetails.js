@@ -22,7 +22,7 @@ const CourseDetails = () => {
                 <div className='d-flex justify-content-between align-items-center'>
                     <h5 className='font-bold'>Welcome to our <small className='text-decoration-underline text-primary'>{course.name}</small> course.</h5>
                     <p>
-                        <ReactToPdf targetRef={ref} filename="course-invoice.pdf" x={35} y={50} scale={0.8}>
+                        <ReactToPdf targetRef={ref} filename="course-details.pdf" x={35} y={50} scale={0.8}>
                             {({ toPdf }) => (
                                 <button className='border bg-primary py-1 px-2 rounded text-white' onClick={toPdf}>Download PDF</button>
                             )}

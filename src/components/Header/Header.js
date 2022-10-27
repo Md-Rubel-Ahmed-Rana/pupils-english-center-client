@@ -20,11 +20,11 @@ const Header = () => {
                 <NavLink to="/courses" className={({ isActive }) => { return isActive ? "active text-danger" : "text-decoration-none text-dark" }}>Courses</NavLink>
                 <NavLink
                 to="/fqa" className={({ isActive }) => {return isActive ? "active text-danger" :  "text-decoration-none text-dark"}}
-                >FQA</NavLink>
+                >FAQ</NavLink>
                 <NavLink to="/blogs" className={({ isActive }) => { return isActive ? "active text-danger" : "text-decoration-none text-dark" }}>Blogs</NavLink>
 
                 {
-                    user?.uid ?
+                    user?.uid  ?
                         <>
                             <Link to="profile">
                                 <img onMouseOver={() => setShow(!show)} title="Md Rubel Ahmed Rana" style={{ height: "35px", borderRadius: "50%", width: "35px" }} src={user?.photoURL} alt="" />

@@ -5,7 +5,7 @@ import { Vortex } from 'react-loader-spinner'
 
 const PrivateRoute = ({children}) => {
     const { user, loading } = useContext(AuthContext);
-    const location = useLocation()
+    const location = useLocation();
     if(loading){
         return (
             <div className='text-center'>
@@ -22,10 +22,10 @@ const PrivateRoute = ({children}) => {
         )
     }
 
-    if(user && user.uid){
+    if(user && user?.uid){
         return children;
     }
-    return <Navigate to="/login" state={{ from: location }} replace />
+    return <Navigate to={"/login" || "/register"} state={{ from: location }} replace />
     
 };
 

@@ -1,19 +1,17 @@
-import React, { useContext } from 'react';
+import React  from 'react';
 import { Vortex } from 'react-loader-spinner';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../contexts/UserContext';
 import useFetch from '../../hooks/useFetch';
 import SideBar from '../SideBar/SideBar';
 import "./Courses.css"
 
 const Courses = () => {
     const courses = useFetch();
-    const {loading} = useContext(AuthContext);
     
     return (
         <div className='px-5 row'>
             { 
-                loading || courses.length === 0 ? <div className='text-center'>
+                 courses.length === 0 ? <div className='text-center'>
                     <h1>Data Loading</h1>
                     <Vortex
                         visible={true}

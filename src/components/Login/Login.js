@@ -9,16 +9,17 @@ import swal from 'sweetalert';
 const Login = () => {
     const [email, setEmail] = useState("")
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname
     const { handleSignInWithGoogle, 
             setUser, 
             signinWithGithub, 
-            signinWithFacebook, 
+            signinWithFacebook,
             loginWithEmailAndPassword,
             resetPassword
         } = useContext(AuthContext);
 
-    const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
+    
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -31,11 +32,7 @@ const Login = () => {
                 const user = res.user;
                 setUser(user);
                 swal("Wow!", "Congratulations!", "success")
-                if(from){
-                    navigate(from, { replace: true })
-                }else{
-                    navigate("/")
-                }
+                navigate(from, { replace: true })
             })
             .catch((error) => {
                 swal(`${error}`, "", "error")
