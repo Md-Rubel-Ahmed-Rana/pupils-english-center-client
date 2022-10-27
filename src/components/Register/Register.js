@@ -23,8 +23,8 @@ const Register = () => {
         .then(() => {
             handleUpdateProfile(fullName, photoURL);
             navigate("/")
-            window.location.reload()
             swal("Good Job", "User created successfully and Profile Updated", "success")
+            window.location.reload()
         })
         .catch((error) => swal(`${error}`, "", "error"))
     };

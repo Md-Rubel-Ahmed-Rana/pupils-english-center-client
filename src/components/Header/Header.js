@@ -15,7 +15,7 @@ const Header = () => {
                 <img src={Logo} alt="" />
                 <h5>Pupils English Center</h5>
             </div>
-            <div className='header-menu d-flex gap-2 position-relative'>
+            <div className='header-menu d-flex gap-md-2 gap-1 flex-wrap position-relative'>
                 <NavLink  to="/home" className={({ isActive }) => { return isActive ? "active text-danger" : "text-decoration-none text-dark" }}>Home</NavLink>
                 <NavLink to="/courses" className={({ isActive }) => { return isActive ? "active text-danger" : "text-decoration-none text-dark" }}>Courses</NavLink>
                 <NavLink
