@@ -10,12 +10,12 @@ const Header = () => {
     const [dark, setDark] = useState(false);
 
     return (
-        <div className='d-md-flex justify-content-between md-justify-center align-items-center bg-info px-5 py-1'>
+        <div className='d-md-flex justify-content-between md-justify-center align-items-center bg-info  px-md-5 px-2 py-1'>
             <div className='header d-flex align-items-center gap-3'>
                 <img src={Logo} alt="" />
                 <h5>Pupils English Center</h5>
             </div>
-            <div className='d-flex gap-2 position-relative'>
+            <div className='header-menu d-flex gap-2 position-relative'>
                 <NavLink  to="/home" className={({ isActive }) => { return isActive ? "active text-danger" : "text-decoration-none text-dark" }}>Home</NavLink>
                 <NavLink to="/courses" className={({ isActive }) => { return isActive ? "active text-danger" : "text-decoration-none text-dark" }}>Courses</NavLink>
                 <NavLink
