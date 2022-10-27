@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./Home.css";
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
@@ -7,13 +7,15 @@ import IELTS from "../../images/ielts.png"
 import Graphics from "../../images/graphics-design.png"
 import Spoken from "../../images/speaking.png"
 import Computer from "../../images/basic-computer.png"
+import { AuthContext } from '../../contexts/UserContext';
 
 
 
 const Home = () => {
+    const { dark } = useContext(AuthContext)
     return (
-        <div>
-            <AwesomeSlider className='carousel mb-5'>
+        <div className={`${dark ? "bg-light" : "bg-dark"}`}>
+            <AwesomeSlider className="carousel mb-5">
                 <div className='carousel-card'>
                     <img className='img-fluid' src={Banner} alt="" />
                 </div>

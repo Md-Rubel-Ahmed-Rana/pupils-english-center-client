@@ -4,6 +4,9 @@
 .header-img img{
     height: 200px;
 }
+
+
+
 @media screen and (max-width: 768px) {
     .details-container{
     width: 90%;

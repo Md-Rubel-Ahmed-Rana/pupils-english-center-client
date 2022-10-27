@@ -10,6 +10,8 @@ const UserContext = ({children}) => {
     const [user, setUser] = useState(null);
     const [currentCourseInfo, setCurrentCourseInfo] = useState({})
     const [loading, isLoading] = useState(true);
+    const [dark, setDark] = useState(false);
+
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
@@ -83,7 +85,9 @@ const UserContext = ({children}) => {
         userLogOut,
         setCurrentCourseInfo,
         currentCourseInfo,
-        resetPassword
+        resetPassword,
+        setDark,
+        dark
     }
 
     return (

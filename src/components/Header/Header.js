@@ -5,14 +5,14 @@ import Logo from "../../images/pupils-logo.jpg";
 import "./Header.css"
 
 const Header = () => {
-    const { user, userLogOut } = useContext(AuthContext);
+    const { user, userLogOut, setDark, dark } = useContext(AuthContext);
     const [show, setShow] = useState(false);
-    const [dark, setDark] = useState(false);
+    
 
     return (
-        <div className='d-md-flex justify-content-between md-justify-center align-items-center bg-info  px-md-5 px-2 py-1'>
+        <div className={"d-md-flex bg-info justify-content-between md-justify-center align-items-center   px-md-5 px-2 py-1"}>
             <div className='header d-flex align-items-center gap-3'>
-                <img src={Logo} alt="" />
+                <img className='border' src={Logo} alt="" />
                 <h5>Pupils English Center</h5>
             </div>
             <div className='header-menu d-flex gap-md-2 gap-1 flex-wrap position-relative'>
@@ -34,7 +34,7 @@ const Header = () => {
                     : <NavLink to="/login" className="text-decoration-none text-dark">Login</NavLink>
                 }
 
-                <button onClick={() => setDark(!dark)} className="btn btn-dark py-0">{dark ? "Dark" : "Light" }</button>
+                <button onClick={() => setDark(!dark)} className="btn btn-dark py-0">{dark ? "Light" :  "Dark" }</button>
 
                 <p className={`position-absolute top-100 bg-success text-white rounded py-1 px-2 start-50 m-0 ${show ? "d-block" : "d-none"}`}>{user?.displayName}</p>
             </div>

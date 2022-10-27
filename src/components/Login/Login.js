@@ -16,7 +16,8 @@ const Login = () => {
             signinWithGithub, 
             signinWithFacebook,
             loginWithEmailAndPassword,
-            resetPassword
+            resetPassword,
+            dark
         } = useContext(AuthContext);
 
     
@@ -84,40 +85,42 @@ const Login = () => {
     }
 
     return (
-        <div className='form-container d-md-flex mx-auto gap-5 border mt-2 p-2'>
-            <div>
-                <Form onSubmit={handleLogin} className='bg-light p-2'>
-                    <h3 className='text-center'>Login Please</h3>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control onChange={getUserEmail} type="email" name="email" placeholder="Enter email" required/>
-                    </Form.Group>
-                
-                    <Form.Group className="mb-1" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name="password" placeholder="Password" required />
-                    </Form.Group>
-                    <Link onClick={handleResetPassword} className='text-decoration-none'>Forget Password?</Link>
+        <div className={`conatainer-fluid p-md-4 ${dark ? "bg-light" : "bg-dark"}`}>
+            <div className='form-container d-md-flex mx-auto gap-5 border p-2'>
+                <div>
+                    <Form onSubmit={handleLogin} className={`p-2 ${dark ? "bg-ligh" : "bg-dark text-white"}`}>
+                        <h3 className='text-center'>Login Please</h3>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control onChange={getUserEmail} type="email" name="email" placeholder="Enter email" required />
+                        </Form.Group>
 
-                    <div className='text-center '>
-                        <Button className='w-100 mt-2' variant="primary" type="submit">
-                            Login
-                        </Button>
+                        <Form.Group className="mb-1" controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" name="password" placeholder="Password" required />
+                        </Form.Group>
+                        <Link onClick={handleResetPassword} className='text-decoration-none'>Forget Password?</Link>
 
-                        <p className='mt-2'>Don't have an account? <Link to="/register">Register</Link> </p>
+                        <div className='text-center '>
+                            <Button className='w-100 mt-2' variant="primary" type="submit">
+                                Login
+                            </Button>
+
+                            <p className='mt-2'>Don't have an account? <Link to="/register">Register</Link> </p>
+                        </div>
+                    </Form>
+                </div>
+                <div className='mt-2 signin-buttons'>
+                    <div className='mx-auto'>
+                        <Button onClick={handleGoogle} variant="light d-block border">Signin with Google</Button>
                     </div>
-                </Form>
-            </div>
-            <div className='mt-2 signin-buttons'>
-                <div className='mx-auto'>
-                    <Button onClick={handleGoogle} variant="light d-block border">Signin with Google</Button>
+                    <div className='mx-auto'>
+                        <Button onClick={handleGithub} variant="light d-block border">Signin with Github</Button>
+                    </div>
+                    <div className='mx-auto'>
+                        <Button onClick={handleFacebook} variant="light d-block border">Signin with Facebook</Button>
+                    </div>
                 </div>
-                <div className='mx-auto'>
-                    <Button onClick={handleGithub} variant="light d-block border">Signin with Github</Button>
-                </div>
-                <div className='mx-auto'>
-                    <Button onClick={handleFacebook} variant="light d-block border">Signin with Facebook</Button>
-               </div>
             </div>
         </div>
     );

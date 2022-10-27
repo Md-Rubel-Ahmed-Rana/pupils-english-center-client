@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import "./Footer.css"
 import { FaFacebook, 
         FaYoutube,  
         FaLinkedinIn,
@@ -7,10 +8,14 @@ import { FaFacebook,
         FaEnvelope,
         FaPhoneAlt
         } from "react-icons/fa";
+import { AuthContext } from '../../contexts/UserContext';
+
+
 
 const Footer = () => {
+    const { dark } = useContext(AuthContext)
     return (
-        <div style={{ backgroundColor: "#00000040"}} className='p-4 d-md-flex justify-content-center gap-5 mt-5'>
+        <div className={`p-4 d-md-flex justify-content-center gap-5 ${dark ? "make-light" : "bg-dark text-white border-top"}`}>
             <div>
                 <h5>Contact Details</h5>
                 <p>Websile: https://pupils-english-center.web.app/</p>
