@@ -1,0 +1,11 @@
+.carousel{
+    width: 100vh;
+    height: 70vh;
+    background-color: cadetblue;
+}
+
+.carousel-card img{
+    width: 100vw;
+    height: 60vh;
+    object-fit:fill;
+}
