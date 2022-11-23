@@ -7,7 +7,6 @@ const useFetch = () => {
         .then((res) => res.json())
             .then((data) => setCourses(data))
     }, []);
-
     return courses;
 };
 
