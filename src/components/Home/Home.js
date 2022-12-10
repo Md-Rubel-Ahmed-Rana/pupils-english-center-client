@@ -3,13 +3,17 @@ import "./Home.css";
 import AwesomeSlider from 'react-awesome-slider';
 
 import Banner from './Banner/Banner';
+import Curriculum from './Curriculum/Curriculum';
 
 
 
 const Home = () => {
     return (
 
-        <Banner />
+       <div>
+            <Banner />
+            <Curriculum />
+       </div>
         
         // <div className='mt-0'>
         //     <AwesomeSlider className="carousel">
