@@ -5,10 +5,13 @@
     background-size: cover;
     background-position: center;
     position: relative;
+    
 }
 .content{
+    width: 40%;
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 30%;
     padding: 10px;
+    
 }
