@@ -15,7 +15,7 @@ import { AuthContext } from '../../contexts/UserContext';
 const Footer = () => {
     const { dark } = useContext(AuthContext)
     return (
-        <div className={`p-4 d-md-flex justify-content-center gap-5 ${dark ? "make-light" : "bg-dark text-white border-top"}`}>
+        <div className={`p-4 d-md-flex justify-content-center gap-5 ${dark ? "bg-dark text-white border-top" : " make-light"}`}>
             <div>
                 <h5>Contact Details</h5>
                 <p>Websile: https://pupils-english-center.web.app/</p>

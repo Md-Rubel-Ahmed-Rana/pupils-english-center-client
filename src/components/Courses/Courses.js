@@ -11,7 +11,7 @@ const Courses = () => {
     const { dark } = useContext(AuthContext)
     
     return (
-        <div className={`px-5 pb-5 row ${dark ? "bg-light" : "bg-dark text-white"}`}>
+        <div className={`px-5 pb-5 row ${dark ? "bg-dark text-white" : "bg-light"}`}>
             { 
                  courses.length === 0 ? <div className='text-center'>
                     <h1>Data Loading</h1>

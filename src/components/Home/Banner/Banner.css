@@ -1,0 +1,14 @@
+.banner{
+    background-image: url("../../../images/banner.png");
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.content{
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    padding: 10px;
+}

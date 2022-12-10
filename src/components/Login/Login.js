@@ -85,10 +85,10 @@ const Login = () => {
     }
 
     return (
-        <div className={`conatainer-fluid p-md-4 ${dark ? "bg-light" : "bg-dark"}`}>
+        <div className={`conatainer-fluid p-md-4 ${dark ? "bg-dark" : "bg-light"}`}>
             <div className='form-container d-md-flex mx-auto gap-5 border p-2'>
                 <div>
-                    <Form onSubmit={handleLogin} className={`p-2 ${dark ? "bg-ligh" : "bg-dark text-white"}`}>
+                    <Form onSubmit={handleLogin} className={`p-2 ${dark ? "bg-dark text-white" : "bg-light"}`}>
                         <h3 className='text-center'>Login Please</h3>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>

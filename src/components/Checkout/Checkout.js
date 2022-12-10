@@ -7,7 +7,7 @@ const ref = React.createRef();
 const Checkout = () => {
     const { user, currentCourseInfo, dark } = useContext(AuthContext);
     return (
-            <div className={`p-5 ${dark ? "bg-light" : "bg-dark text-white"}`}>
+        <div className={`p-5 ${dark ? "bg-dark text-white" : "bg-light"}`}>
 
                     <div className='d-flex justify-content-center  align-items-center gap-5'>
                         <h4 className='text-center py-2'>Thanks for Choosing Our Course</h4>

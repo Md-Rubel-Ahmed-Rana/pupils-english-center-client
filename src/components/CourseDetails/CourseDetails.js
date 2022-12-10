@@ -15,9 +15,9 @@ const CourseDetails = () => {
 
     useEffect(() => {
         setCurrentCourseInfo(courseInfo)
-    },[])
+    }, [])
     return (
-        <div className={`container-fluid p-2 ${dark ? "bg-light" : "bg-dark text-white"}`}>
+        <div className={`container-fluid p-2 ${dark ? "bg-dark text-white" : "bg-light"}`}>
             <div ref={ref} className='details-container border   mx-auto rounded'>
                 <div className='p-2'>
                     <div className='d-flex justify-content-between align-items-center'>

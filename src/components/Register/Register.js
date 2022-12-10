@@ -65,10 +65,10 @@ const Register = () => {
             .catch((error) => swal(`${error}`, "", "error"))
     }
     return (
-        <div className={`p-2 ${dark ? "bg-light" : "bg-dark"}`}>
+        <div className={`p-2 ${dark ? "bg-dark" : "bg-light"}`}>
             <div className='form-container d-md-flex mx-auto gap-5 border  p-2'>
                 <div>
-                    <Form onSubmit={handleRegistration} className={`p-2 ${dark ? "bg-light" : "bg-dark text-white"}`}>
+                    <Form onSubmit={handleRegistration} className={`p-2 ${dark ? "bg-dark text-white" : "bg-light"}`}>
                         <h3 className='text-center'>Register here</h3>
                         <Form.Group className="mb-3" controlId="fullname">
                             <Form.Label>Full Name</Form.Label>
