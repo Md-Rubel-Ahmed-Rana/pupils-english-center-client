@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import "./Home.css";
 import AwesomeSlider from 'react-awesome-slider';
 
 import Banner from './Banner/Banner';
 import Curriculum from './Curriculum/Curriculum';
+import Courses from '../Courses/Courses';
 
 
 
@@ -13,6 +14,7 @@ const Home = () => {
        <div>
             <Banner />
             <Curriculum />
+            <Courses />
        </div>
         
         // <div className='mt-0'>
