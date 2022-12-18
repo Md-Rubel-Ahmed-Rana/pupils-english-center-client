@@ -13,8 +13,9 @@ const Home = () => {
 
        <div>
             <Banner />
-            <Curriculum />
+            <h3 className='text-center fs-2 mt-5'>Our Courses</h3>
             <Courses />
+            <Curriculum />
        </div>
         
         // <div className='mt-0'>

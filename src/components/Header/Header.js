@@ -33,7 +33,7 @@ const Header = () => {
                     : <NavLink to="/login" className="text-decoration-none text-dark">Login</NavLink>
                 }
 
-                <button onClick={() => setDark(!dark)} className="btn btn-dark py-0">{dark ? "Light" :  "Dark" }</button>
+                <button onClick={() => setDark(!dark)} className="btn btn-dark py-0">{dark ? "Dark" :  "Light" }</button>
             </div>
         </div>
     );
